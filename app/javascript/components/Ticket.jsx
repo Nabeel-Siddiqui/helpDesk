@@ -8,6 +8,7 @@ const Ticket = () => {
   const [response, setResponse] = useState("");
   const [status, setStatus] = useState("");
   const [resolved, setResolved] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     const url = `/api/v1/show/${params.id}`;
@@ -59,11 +60,15 @@ const Ticket = () => {
     })
       .then((response) => {
         if (response.ok) {
+          setShowAlert(true);
+          setTimeout(() => {setShowAlert(false);
+          navigate('/');
+          }, 3000)
           return response.json();
         }
         throw new Error("Network response was not ok.");
       })
-      .then(() => navigate("/tickets"))
+      // .then(() => navigate("/tickets"))
       .catch((error) => console.log(error.message));
   };
 
@@ -72,6 +77,11 @@ const Ticket = () => {
       <div className="container mt-5">
         <div className="row">
           <div className="col-sm-12 col-lg-6 offset-lg-3">
+            {showAlert && (
+            <div className="alert alert-primary" role="alert">
+              Ticket successfully updated!
+            </div>
+          )}
             <h1 className="font-weight-normal mb-5">Resolve Ticket</h1>
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -125,7 +135,6 @@ const Ticket = () => {
                 aria-label="Default select example"
               >
                 <option value="">Select Status</option>
-                <option value="New">New</option>
                 <option value="Pending">Pending</option>
                 <option value="Resolved">Resolved</option>
               </select>

@@ -38952,6 +38952,7 @@ var Ticket = () => {
   const [response, setResponse] = (0, import_react3.useState)("");
   const [status, setStatus] = (0, import_react3.useState)("");
   const [resolved, setResolved] = (0, import_react3.useState)(false);
+  const [showAlert, setShowAlert] = (0, import_react3.useState)(false);
   (0, import_react3.useEffect)(() => {
     const url = `/api/v1/show/${params.id}`;
     fetch(url).then((response2) => {
@@ -38994,12 +38995,17 @@ var Ticket = () => {
       body: JSON.stringify(body)
     }).then((response2) => {
       if (response2.ok) {
+        setShowAlert(true);
+        setTimeout(() => {
+          setShowAlert(false);
+          navigate("/");
+        }, 3e3);
         return response2.json();
       }
       throw new Error("Network response was not ok.");
-    }).then(() => navigate("/tickets")).catch((error2) => console.log(error2.message));
+    }).catch((error2) => console.log(error2.message));
   };
-  return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-6 offset-lg-3" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Resolve Ticket"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "name" }, "Name"), /* @__PURE__ */ import_react3.default.createElement(
+  return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-6 offset-lg-3" }, showAlert && /* @__PURE__ */ import_react3.default.createElement("div", { className: "alert alert-primary", role: "alert" }, "Ticket successfully updated!"), /* @__PURE__ */ import_react3.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Resolve Ticket"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "name" }, "Name"), /* @__PURE__ */ import_react3.default.createElement(
     "input",
     {
       className: "form-control",
@@ -39050,7 +39056,6 @@ var Ticket = () => {
       "aria-label": "Default select example"
     },
     /* @__PURE__ */ import_react3.default.createElement("option", { value: "" }, "Select Status"),
-    /* @__PURE__ */ import_react3.default.createElement("option", { value: "New" }, "New"),
     /* @__PURE__ */ import_react3.default.createElement("option", { value: "Pending" }, "Pending"),
     /* @__PURE__ */ import_react3.default.createElement("option", { value: "Resolved" }, "Resolved")
   ), /* @__PURE__ */ import_react3.default.createElement("button", { type: "submit", className: "btn custom-button mt-3" }, "Submit"))))));
@@ -39064,6 +39069,7 @@ var NewTicket = () => {
   const [name, setName] = (0, import_react4.useState)("");
   const [email, setEmail] = (0, import_react4.useState)("");
   const [description, setDescription] = (0, import_react4.useState)("");
+  const [showAlert, setShowAlert] = (0, import_react4.useState)(false);
   const onChange = (e, setFunction) => {
     setFunction(e.target.value);
   };
@@ -39090,6 +39096,8 @@ var NewTicket = () => {
       body: JSON.stringify(body)
     }).then((response) => {
       if (response.ok) {
+        setShowAlert(true);
+        setTimeout(() => setShowAlert(false), 3e3);
         setName("");
         setEmail("");
         setDescription("");
@@ -39098,7 +39106,7 @@ var NewTicket = () => {
       throw new Error("Network response was not ok.");
     }).then((response) => navigate("/")).catch((error2) => console.log(error2.message));
   };
-  return /* @__PURE__ */ import_react4.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "col-sm-12 col-lg-6 offset-lg-3" }, /* @__PURE__ */ import_react4.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Create a new ticket."), /* @__PURE__ */ import_react4.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "name" }, "Name"), /* @__PURE__ */ import_react4.default.createElement(
+  return /* @__PURE__ */ import_react4.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "col-sm-12 col-lg-6 offset-lg-3" }, showAlert && /* @__PURE__ */ import_react4.default.createElement("div", { className: "alert alert-primary", role: "alert" }, "Ticket successfully created!"), /* @__PURE__ */ import_react4.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Create a new ticket."), /* @__PURE__ */ import_react4.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "name" }, "Name"), /* @__PURE__ */ import_react4.default.createElement(
     "input",
     {
       type: "text",

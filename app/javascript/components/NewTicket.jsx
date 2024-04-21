@@ -6,6 +6,8 @@ const NewTicket = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [description, setDescription] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+
 
     const onChange = (e, setFunction) => {
         setFunction(e.target.value);
@@ -38,6 +40,8 @@ const NewTicket = () => {
         })
             .then((response) => {
                 if (response.ok) {
+                    setShowAlert(true);
+                    setTimeout(() => setShowAlert(false), 3000)
                     setName("");
                     setEmail("");
                     setDescription("");
@@ -53,6 +57,11 @@ const NewTicket = () => {
         <div className="container mt-5">
             <div className="row">
                 <div className="col-sm-12 col-lg-6 offset-lg-3">
+                {showAlert && (
+                    <div className="alert alert-primary" role="alert">
+                        Ticket successfully created!
+                    </div>
+                )}
                     <h1 className="font-weight-normal mb-5">
                         Create a new ticket.
                     </h1>
