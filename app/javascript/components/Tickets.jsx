@@ -20,19 +20,19 @@ const Tickets = () => {
   }, []);
 
   const allTickets =  tickets.map((ticket, index) => (
-    <div key={index} className="col-md-6 col-lg-4">
-      <div className="card" style={{width: "18rem"}}>
+    <div key={index} className="col-md-6 col-lg-4 mb-4">
+      <div className="card" style={{width: '18rem'}}>
         <div className="card-body">
           <h5 className="card-title">{ticket.name}</h5>
-          <h6 className="card-subtitle mb-2 text-body-secondary">
+          <h6 className="card-subtitle mb-2 text-body-muted">
             {ticket.email}
           </h6>
-          <p className="card-text">{ticket.description}.</p>
-          <a className="text-success">{`Status: ${ticket.status}`}</a>
-          <Link to={`/ticket/${ticket.id}`} className="card-link">
-            Resolve Ticket
-          </Link>
-        </div>
+          <p className="card-text d-inline-block text-truncate" >{ticket.description}.</p>
+          <div className="mb-2 d-flex align-items-center">
+            <a className="text-success mr-2" >{`Status: ${ticket.status}`}</a>
+            <Link style={{marginLeft: '10px'}} to={`/ticket/${ticket.id}`}> Resolve Ticket</Link>
+          </div>
+        </div> 
       </div>
     </div>
   ));
@@ -42,7 +42,7 @@ const Tickets = () => {
     <h1>Ticket Dashboard</h1>
       <div className="py-5">
         <main className="container">
-        <div className="row">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {allTickets}
         </div>
         </main>

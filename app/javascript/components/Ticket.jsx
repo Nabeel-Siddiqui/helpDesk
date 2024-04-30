@@ -74,9 +74,9 @@ const Ticket = () => {
 
   return (
     <>
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-sm-12 col-lg-6 offset-lg-3">
+      <div className="container-fluid mt-5">
+        <div className="row justify-content-center">
+          <div className="col-lg-10">
             {showAlert && (
             <div className="alert alert-primary" role="alert">
               Ticket successfully updated!

@@ -7,8 +7,8 @@ class Api::V1::TicketsController < ApplicationController
   end
 
   def create
-    ticket = Ticket.create!(ticket_params)
-    if ticket
+    ticket = Ticket.new(ticket_params)
+    if ticket.save
       render json: ticket
     else
       render json: ticket.errors
@@ -26,6 +26,8 @@ class Api::V1::TicketsController < ApplicationController
       render json: { message: 'Update failed!' }
     end
   end
+
+  private
 
   def ticket_params
     params.permit(:name, :email, :description, :response, :resolved, :status)

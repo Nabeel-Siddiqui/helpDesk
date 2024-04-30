@@ -38908,9 +38908,9 @@ function useViewTransitionState(to, opts) {
   return matchPath(path.pathname, nextPath) != null || matchPath(path.pathname, currentPath) != null;
 }
 
-// app/javascript/components/Navbar.jsx
+// app/javascript/components/NavBar.jsx
 var import_react = __toESM(require_react());
-var Navbar_default = () => /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("nav", { className: "navbar navbar-expand-lg bg-body-tertiary" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container-fluid" }, /* @__PURE__ */ import_react.default.createElement("a", { className: "navbar-brand" }, "HelpDesk"), /* @__PURE__ */ import_react.default.createElement(
+var NavBar_default = () => /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("nav", { className: "navbar navbar-expand-lg bg-body-tertiary" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container-fluid" }, /* @__PURE__ */ import_react.default.createElement("a", { className: "navbar-brand" }, "HelpDesk"), /* @__PURE__ */ import_react.default.createElement(
   "button",
   {
     className: "navbar-toggler",
@@ -38938,8 +38938,8 @@ var Tickets = () => {
       throw new Error("Network response was not ok.");
     }).then((res) => setTickets(res)).catch(() => navigate("/"));
   }, []);
-  const allTickets = tickets.map((ticket, index) => /* @__PURE__ */ import_react2.default.createElement("div", { key: index, className: "col-md-6 col-lg-4" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card", style: { width: "18rem" } }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react2.default.createElement("h5", { className: "card-title" }, ticket.name), /* @__PURE__ */ import_react2.default.createElement("h6", { className: "card-subtitle mb-2 text-body-secondary" }, ticket.email), /* @__PURE__ */ import_react2.default.createElement("p", { className: "card-text" }, ticket.description, "."), /* @__PURE__ */ import_react2.default.createElement("a", { className: "text-success" }, `Status: ${ticket.status}`), /* @__PURE__ */ import_react2.default.createElement(Link, { to: `/ticket/${ticket.id}`, className: "card-link" }, "Resolve Ticket")))));
-  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("h1", null, "Ticket Dashboard"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, allTickets))));
+  const allTickets = tickets.map((ticket, index) => /* @__PURE__ */ import_react2.default.createElement("div", { key: index, className: "col-md-6 col-lg-4 mb-4" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card", style: { width: "18rem" } }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react2.default.createElement("h5", { className: "card-title" }, ticket.name), /* @__PURE__ */ import_react2.default.createElement("h6", { className: "card-subtitle mb-2 text-body-muted" }, ticket.email), /* @__PURE__ */ import_react2.default.createElement("p", { className: "card-text d-inline-block text-truncate" }, ticket.description, "."), /* @__PURE__ */ import_react2.default.createElement("div", { className: "mb-2 d-flex align-items-center" }, /* @__PURE__ */ import_react2.default.createElement("a", { className: "text-success mr-2" }, `Status: ${ticket.status}`), /* @__PURE__ */ import_react2.default.createElement(Link, { style: { marginLeft: "10px" }, to: `/ticket/${ticket.id}` }, " Resolve Ticket"))))));
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("h1", null, "Ticket Dashboard"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" }, allTickets))));
 };
 var Tickets_default = Tickets;
 
@@ -39005,7 +39005,7 @@ var Ticket = () => {
       throw new Error("Network response was not ok.");
     }).catch((error2) => console.log(error2.message));
   };
-  return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-6 offset-lg-3" }, showAlert && /* @__PURE__ */ import_react3.default.createElement("div", { className: "alert alert-primary", role: "alert" }, "Ticket successfully updated!"), /* @__PURE__ */ import_react3.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Resolve Ticket"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "name" }, "Name"), /* @__PURE__ */ import_react3.default.createElement(
+  return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement("div", { className: "container-fluid mt-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row justify-content-center" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-lg-10" }, showAlert && /* @__PURE__ */ import_react3.default.createElement("div", { className: "alert alert-primary", role: "alert" }, "Ticket successfully updated!"), /* @__PURE__ */ import_react3.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Resolve Ticket"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "name" }, "Name"), /* @__PURE__ */ import_react3.default.createElement(
     "input",
     {
       className: "form-control",
@@ -39064,6 +39064,31 @@ var Ticket_default = Ticket;
 
 // app/javascript/components/NewTicket.jsx
 var import_react4 = __toESM(require_react());
+
+// app/javascript/utils/api.jsx
+var createTicket = async (ticketData) => {
+  const url = "/api/v1/tickets/create";
+  const token = document.querySelector('meta[name="csrf-token"]').content;
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "X-CSRF-Token": token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(ticketData)
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok.");
+    }
+    return await response.json();
+  } catch (error2) {
+    console.error("Error creating ticket:", error2);
+    throw error2;
+  }
+};
+
+// app/javascript/components/NewTicket.jsx
 var NewTicket = () => {
   const navigate = useNavigate();
   const [name, setName] = (0, import_react4.useState)("");
@@ -39073,38 +39098,29 @@ var NewTicket = () => {
   const onChange = (e, setFunction) => {
     setFunction(e.target.value);
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const url = "/api/v1/tickets/create";
-    if (name.length == 0 || email.length == 0 || description.length == 0)
+    if (!name || !email || !description) {
       return;
-    const body = {
-      name,
-      email,
-      description,
-      response: null,
-      resolved: false,
-      status: "new"
-    };
-    const token = document.querySelector('meta[name="csrf-token"]').content;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "X-CSRF-Token": token,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
-    }).then((response) => {
-      if (response.ok) {
-        setShowAlert(true);
-        setTimeout(() => setShowAlert(false), 3e3);
-        setName("");
-        setEmail("");
-        setDescription("");
-        return response.json();
-      }
-      throw new Error("Network response was not ok.");
-    }).then((response) => navigate("/")).catch((error2) => console.log(error2.message));
+    }
+    try {
+      await createTicket({
+        name,
+        email,
+        description,
+        response: null,
+        resolved: false,
+        status: "new"
+      });
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3e3);
+      setName("");
+      setEmail("");
+      setDescription("");
+      navigate("/");
+    } catch (error2) {
+      console.error("Error creating ticket:", error2);
+    }
   };
   return /* @__PURE__ */ import_react4.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "col-sm-12 col-lg-6 offset-lg-3" }, showAlert && /* @__PURE__ */ import_react4.default.createElement("div", { className: "alert alert-primary", role: "alert" }, "Ticket successfully created!"), /* @__PURE__ */ import_react4.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Create a new ticket."), /* @__PURE__ */ import_react4.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "name" }, "Name"), /* @__PURE__ */ import_react4.default.createElement(
     "input",
@@ -39144,7 +39160,7 @@ var NewTicket = () => {
 var NewTicket_default = NewTicket;
 
 // app/javascript/routes/index.jsx
-var routes_default = /* @__PURE__ */ import_react5.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react5.default.createElement(Navbar_default, null), /* @__PURE__ */ import_react5.default.createElement(Routes, null, /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(NewTicket_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/tickets", element: /* @__PURE__ */ import_react5.default.createElement(Tickets_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/ticket/:id", element: /* @__PURE__ */ import_react5.default.createElement(Ticket_default, null) })));
+var routes_default = /* @__PURE__ */ import_react5.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react5.default.createElement(NavBar_default, null), /* @__PURE__ */ import_react5.default.createElement(Routes, null, /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(NewTicket_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/tickets", element: /* @__PURE__ */ import_react5.default.createElement(Tickets_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/ticket/:id", element: /* @__PURE__ */ import_react5.default.createElement(Ticket_default, null) })));
 
 // app/javascript/components/App.jsx
 var App_default = (props) => /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, routes_default);
